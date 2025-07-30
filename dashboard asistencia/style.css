@@ -1,6 +1,0 @@
-body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
-.nav-link.active { background-color: #e0f2fe; color: #0c4a6e; }
-.view { display: none; }
-.view.active { display: block; animation: fadeIn 0.5s; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.chart-container { position: relative; width: 100%; max-width: 800px; margin: auto; height: 40vh; max-height: 400px; }
