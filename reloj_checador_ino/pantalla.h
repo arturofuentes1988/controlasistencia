@@ -1,3 +1,16 @@
+void mostrarPantallaMensaje(String msg1, String msg2, String msg3) {
+    display.clearDisplay();
+    display.setTextSize(1);
+    display.setTextColor(WHITE);
+    display.setCursor(5, 15);
+    display.println(msg1);
+    display.setCursor(5, 30);
+    display.println(msg2);
+    display.setCursor(5, 45);
+    display.println(msg3);
+    display.display();
+}
+
 void mostrarPantallaPrincipal() {
   display.clearDisplay(); display.setTextSize(1); display.setTextColor(WHITE);
   display.setCursor(0, 0);
@@ -29,7 +42,6 @@ void mostrarMenuAdmin() {
 void mostrarPaginaDeRegistros() {
   display.clearDisplay(); display.setTextSize(1); display.setTextColor(WHITE);
   
-  // *** CORRECCIÓN: Se añade "static" para evitar desbordamiento de memoria (stack) ***
   static String fileList[128]; 
   
   int fileCount = 0;
@@ -73,7 +85,6 @@ void mostrarLoginAdmin(String texto) {
   display.println(texto);
   display.setCursor(10,25);
 
-  // *** MEJORA: Muestra asteriscos en lugar del PIN ***
   String pinEnmascarado = "";
   for (unsigned int i = 0; i < tempInput.length(); i++) {
     pinEnmascarado += '*';

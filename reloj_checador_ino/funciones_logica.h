@@ -4,21 +4,16 @@ String getFechaActual() {
   }
 
   timeClient.update();
-
-  // 1. Obtenemos la hora y la guardamos en una variable.
-  //    Ahora 'epochTime' tiene una dirección de memoria fija.
+  
   time_t epochTime = timeClient.getEpochTime();
 
-  // Si la hora aún no es válida (por ejemplo, justo después de arrancar), devolvemos "offline".
-  if (epochTime < 1000000000) { // Un chequeo simple para ver si la fecha es coherente.
+  if (epochTime < 1000000000) {
     return "offline";
   }
 
-  // 2. Ahora sí podemos pasar la dirección de nuestra variable a gmtime_r.
   struct tm timeinfo;
   gmtime_r(&epochTime, &timeinfo);
 
-  // El resto del código para formatear la fecha.
   char buffer[11];
   sprintf(buffer, "%04d-%02d-%02d", timeinfo.tm_year + 1900, timeinfo.tm_mon + 1, timeinfo.tm_mday);
   
@@ -120,7 +115,7 @@ int registrarHuella(uint16_t id) {
   p=finger.image2Tz(1); if(p!=FINGERPRINT_OK)return -1;
   p=finger.fingerSearch(); if(p==FINGERPRINT_OK)return -2;
   display.clearDisplay();display.setCursor(5,10);display.println("Retire el dedo");display.display();
-  delay(1500);
+  delay(1500); // Este delay es difícil de quitar sin reestructurar toda la función
   p=0; while(p!=FINGERPRINT_NOFINGER){p=finger.getImage(); yield();}
   p=-1; display.clearDisplay();display.setCursor(5,10);display.println("Coloque de nuevo");display.display();
   while(p!=FINGERPRINT_OK){p=finger.getImage(); yield();}

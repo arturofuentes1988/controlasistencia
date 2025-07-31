@@ -1,5 +1,5 @@
 // --- CONFIGURACIÓN PRINCIPAL ---
-const char* SCRIPT_URL = "AQUÍ_VA_TU_URL_SECRETA_DE_APPS_SCRIPT";
+const char* SCRIPT_URL = "INGRESA AQUI TU LINK";
 const String DEFAULT_ADMIN_PIN = "1234";
 
 // --- Configuración de Pantalla ---
